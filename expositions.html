@@ -6,9 +6,289 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Expositions — Vince</title>
+<title>Quel monde étrange... — Exposition — Vince</title>
 
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+/* =====================================================
+   PAGE EXPOSITION
+   Styles uniquement pour cette page
+===================================================== */
+
+.exposition-page {
+    padding-top: 110px;
+    padding-bottom: 130px;
+}
+
+
+/* INTRO */
+
+.exposition-intro {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.exposition-intro .kicker {
+    margin-bottom: 28px;
+}
+
+.exposition-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(55px, 8vw, 105px);
+    line-height: 0.95;
+    font-weight: 500;
+    margin: 0;
+}
+
+.exposition-title span {
+    color: #a71919;
+}
+
+.exposition-intro-text {
+    max-width: 650px;
+    margin: 35px auto 0;
+    color: #999;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* SEPARATION */
+
+.exposition-line {
+    width: 70px;
+    height: 1px;
+    background: #8f1111;
+    margin: 70px auto;
+}
+
+
+/* INFORMATIONS */
+
+.exposition-info {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 90px;
+    align-items: start;
+    max-width: 1050px;
+    margin: 0 auto 100px;
+}
+
+.exposition-location {
+    border-left: 1px solid #8f1111;
+    padding-left: 25px;
+}
+
+.exposition-label {
+    display: block;
+    color: #a71919;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+.exposition-location h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 500;
+    margin: 0 0 15px;
+}
+
+.exposition-place {
+    color: #ddd;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.exposition-address {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.exposition-text {
+    color: #999;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.exposition-text p {
+    margin-top: 0;
+    margin-bottom: 22px;
+}
+
+.exposition-text strong {
+    color: #ddd;
+    font-weight: 500;
+}
+
+
+/* GALERIE */
+
+.exposition-gallery {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 18px;
+}
+
+.exposition-photo {
+    position: relative;
+    overflow: hidden;
+    background: #0d0d0d;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.exposition-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.exposition-photo:hover img {
+    transform: scale(1.025);
+    filter: brightness(1.08);
+}
+
+.exposition-photo:nth-child(1) {
+    grid-column: span 7;
+    height: 520px;
+}
+
+.exposition-photo:nth-child(2) {
+    grid-column: span 5;
+    height: 520px;
+}
+
+.exposition-photo:nth-child(3) {
+    grid-column: span 5;
+    height: 400px;
+}
+
+.exposition-photo:nth-child(4) {
+    grid-column: span 7;
+    height: 400px;
+}
+
+.exposition-photo:nth-child(5) {
+    grid-column: span 4;
+    height: 470px;
+}
+
+.exposition-photo:nth-child(6) {
+    grid-column: span 8;
+    height: 470px;
+}
+
+
+/* MESSAGE SI AUCUNE PHOTO */
+
+.exposition-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 30px;
+    border: 1px solid rgba(255,255,255,0.06);
+    color: #666;
+}
+
+.exposition-empty strong {
+    display: block;
+    color: #aaa;
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+
+/* VIDEOS */
+
+.exposition-media {
+    max-width: 1050px;
+    margin: 120px auto 0;
+    text-align: center;
+}
+
+.exposition-media .kicker {
+    margin-bottom: 20px;
+}
+
+.exposition-media h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 5vw, 60px);
+    font-weight: 500;
+    margin: 0;
+}
+
+.exposition-media-intro {
+    color: #777;
+    line-height: 1.7;
+    margin: 22px auto 50px;
+    max-width: 600px;
+}
+
+.exposition-videos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.exposition-video {
+    background: #0c0c0c;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.exposition-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    background: #000;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .exposition-page {
+        padding-top: 70px;
+        padding-bottom: 80px;
+    }
+
+    .exposition-info {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        margin-bottom: 70px;
+    }
+
+    .exposition-gallery {
+        display: block;
+    }
+
+    .exposition-photo {
+        height: auto !important;
+        margin-bottom: 18px;
+    }
+
+    .exposition-photo img {
+        height: auto;
+    }
+
+    .exposition-videos {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
 </head>
 
 <body>
@@ -32,56 +312,63 @@ VINCE<span>.</span>
 
 </header>
 
-<main>
+<main class="container exposition-page">
 
-<section class="container page-intro">
+<!-- =====================================================
+     INTRODUCTION
+===================================================== -->
+
+<section class="exposition-intro">
 
 <div class="kicker">
-Expositions
+Collection présentée
 </div>
 
-<h1>
-Quel monde<br>
-<span class="red">étrange...</span>
+<h1 class="exposition-title">
+Quel monde <span>étrange...</span>
 </h1>
 
-<p class="intro">
-Une première collection présentée au public,
-dans un lieu consacré à la création artistique.
+<p class="exposition-intro-text">
+Une collection surréaliste, sombre et personnelle,
+présentée au public à Annonay.
 </p>
 
 </section>
 
-<section class="container exhibition">
+<div class="exposition-line"></div>
 
-<div class="exhibition-header">
+<!-- =====================================================
+     INFORMATIONS
+===================================================== -->
 
-<div>
+<section class="exposition-info">
 
-<span class="exhibition-label">
+<div class="exposition-location">
+
+<span class="exposition-label">
 EXPOSITION
 </span>
 
 <h2>
-Quel monde étrange...
+L'Art des Choix
 </h2>
 
-<p class="exhibition-place">
-L'Art des Choix — Annonay
-</p>
+<div class="exposition-place">
+Annonay
+</div>
 
-<p class="exhibition-address">
+<div class="exposition-address">
 8 Quai de Merle<br>
 07100 Annonay, Ardèche
-</p>
+</div>
 
 </div>
 
-<div class="exhibition-description">
+<div class="exposition-text">
 
 <p>
-« Quel monde étrange... » est une collection qui explore
-un univers surréaliste, sombre et personnel.
+<strong>« Quel monde étrange... »</strong> est une collection
+qui explore un univers surréaliste, sombre et personnel.
 </p>
 
 <p>
@@ -98,75 +385,104 @@ Cette collection a été présentée à
 
 </div>
 
-</div>
+</section>
 
-<div class="exhibition-gallery">
+<!-- =====================================================
+     PHOTOS
+     
+     IMPORTANT :
+     Remplace les noms ci-dessous par les noms EXACTS
+     de tes fichiers dans images/exposition/
+===================================================== -->
 
-<div class="gallery-item large">
+<section class="exposition-gallery" id="photoGallery">
+
+<!-- PHOTO 1 -->
+
+<div class="exposition-photo">
 <img src="images/exposition/expo-01.jpg"
-alt="Exposition Quel monde étrange... — L'Art des Choix"
-onerror="this.parentElement.style.display='none';">
+     alt="Exposition Quel monde étrange...">
 </div>
 
-<div class="gallery-item">
+<!-- PHOTO 2 -->
+
+<div class="exposition-photo">
 <img src="images/exposition/expo-02.jpg"
-alt="Exposition Quel monde étrange... — L'Art des Choix"
-onerror="this.parentElement.style.display='none';">
+     alt="Exposition Quel monde étrange...">
 </div>
 
-<div class="gallery-item">
+<!-- PHOTO 3 -->
+
+<div class="exposition-photo">
 <img src="images/exposition/expo-03.jpg"
-alt="Exposition Quel monde étrange... — L'Art des Choix"
-onerror="this.parentElement.style.display='none';">
+     alt="Exposition Quel monde étrange...">
 </div>
 
-<div class="gallery-item wide">
+<!-- PHOTO 4 -->
+
+<div class="exposition-photo">
 <img src="images/exposition/expo-04.jpg"
-alt="Exposition Quel monde étrange... — L'Art des Choix"
-onerror="this.parentElement.style.display='none';">
+     alt="Exposition Quel monde étrange...">
 </div>
 
-<div class="gallery-item">
+<!-- PHOTO 5 -->
+
+<div class="exposition-photo">
 <img src="images/exposition/expo-05.jpg"
-alt="Exposition Quel monde étrange... — L'Art des Choix"
-onerror="this.parentElement.style.display='none';">
+     alt="Exposition Quel monde étrange...">
 </div>
 
-<div class="gallery-item">
+<!-- PHOTO 6 -->
+
+<div class="exposition-photo">
 <img src="images/exposition/expo-06.jpg"
-alt="Exposition Quel monde étrange... — L'Art des Choix"
-onerror="this.parentElement.style.display='none';">
+     alt="Exposition Quel monde étrange...">
 </div>
 
-</div>
+</section>
 
-<section class="exhibition-video">
+<!-- =====================================================
+     VIDEOS
+     
+     Remplace les noms par les noms EXACTS de tes vidéos.
+     Si tu n'as pas encore de vidéos, laisse les blocs
+     commentés.
+===================================================== -->
+
+<section class="exposition-media">
 
 <div class="kicker">
-EN IMAGES
+En images
 </div>
 
 <h2>
 L'exposition en vidéo
 </h2>
 
-<p>
-Retrouvez ici des vidéos réalisées pendant l'exposition.
+<p class="exposition-media-intro">
+Quelques images prises pendant l'exposition,
+pour découvrir les œuvres dans leur environnement.
 </p>
 
-<div class="video-placeholder">
+<div class="exposition-videos">
 
-<p>
-La vidéo sera ajoutée ici.
-</p>
+<!--
+<div class="exposition-video">
+<video controls playsinline preload="metadata">
+<source src="images/exposition/expo-video-01.mp4" type="video/mp4">
+</video>
+</div>
+-->
 
-<p class="small">
-Pour l'instant, tu peux laisser cette section vide.
-</p>
+<!--
+<div class="exposition-video">
+<video controls playsinline preload="metadata">
+<source src="images/exposition/expo-video-02.mp4" type="video/mp4">
+</video>
+</div>
+-->
 
 </div>
-
-</section>
 
 </section>
 
@@ -185,5 +501,4 @@ Quel monde étrange...
 </footer>
 
 </body>
-
 </html>
