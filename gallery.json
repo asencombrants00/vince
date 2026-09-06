@@ -1,0 +1,17 @@
+[
+    {
+        "file": "tableau-01.jpg",
+        "title": "Nom de ton œuvre",
+        "year": "2026",
+        "technique": "Acrylique sur toile",
+        "size": "30 × 40 cm"
+    },
+
+    {
+        "file": "tableau-02.jpg",
+        "title": "Nom de ton œuvre",
+        "year": "2026",
+        "technique": "Acrylique sur toile",
+        "size": "30 × 40 cm"
+    }
+]
