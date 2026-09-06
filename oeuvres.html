@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -11,6 +10,146 @@
 <title>Œuvres — Vince</title>
 
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+/* =========================
+   GALERIE DES ŒUVRES
+========================= */
+
+.oeuvres-intro {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.oeuvres-intro p {
+    color: #aaa;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.gallery {
+    margin-top: 65px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 45px 28px;
+}
+
+.artwork {
+    break-inside: avoid;
+
+    position: relative;
+
+    margin: 0;
+
+    min-width: 0;
+}
+
+.artwork-image {
+    width: 100%;
+
+    display: block;
+
+    background: #050505;
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    overflow: hidden;
+}
+
+.artwork-image img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
+}
+
+.artwork:hover .artwork-image img {
+    transform: scale(1.02);
+    filter: brightness(1.07);
+}
+
+.artwork-info {
+    padding-top: 15px;
+}
+
+.artwork-title {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 23px;
+
+    color: #eee;
+
+    line-height: 1.2;
+}
+
+.artwork-details {
+    color: #777;
+
+    font-size: 13px;
+
+    margin-top: 7px;
+
+    line-height: 1.5;
+}
+
+/* =========================
+   NUMÉRO DISCRET
+========================= */
+
+.artwork-number {
+    position: absolute;
+
+    top: 12px;
+    left: 12px;
+
+    z-index: 2;
+
+    padding: 5px 8px;
+
+    background: rgba(8,8,8,0.78);
+
+    color: #aaa;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 38px 22px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .gallery {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -25,10 +164,23 @@ VINCE<span>.</span>
 </a>
 
 <nav>
-<a href="univers.html">Univers</a>
-<a class="active" href="oeuvres.html">Œuvres</a>
-<a href="expositions.html">Expositions</a>
-<a href="contact.html">Contact</a>
+
+<a href="univers.html">
+Univers
+</a>
+
+<a class="active" href="oeuvres.html">
+Œuvres
+</a>
+
+<a href="expositions.html">
+Expositions
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
 </nav>
 
 </div>
@@ -47,14 +199,366 @@ Sélection
 Les <span class="red">œuvres.</span>
 </h1>
 
-<p class="intro">
+<div class="oeuvres-intro">
+
+<p>
 Une sélection de peintures et créations issues de mon
 univers artistique.
 </p>
 
-<br><br>
+</div>
 
-<div id="gallery" class="gallery">
+<div class="gallery">
+
+<!-- =========================
+     ŒUVRE 1
+========================= -->
+
+<article class="artwork">
+
+<div class="artwork-image">
+
+<div class="artwork-number">
+01
+</div>
+
+<img
+src="images/vortex1.jpg"
+alt="Vortex — Vince"
+loading="lazy"
+
+>
+
+</div>
+
+<div class="artwork-info">
+
+<div class="artwork-title">
+Vortex
+</div>
+
+<div class="artwork-details">
+2026 · Acrylique sur toile · 30 × 40 cm
+</div>
+
+</div>
+
+</article>
+
+<!-- =========================
+     ŒUVRE 2
+========================= -->
+
+<article class="artwork">
+
+<div class="artwork-image">
+
+<div class="artwork-number">
+02
+</div>
+
+<img
+src="images/Vortex.2.jpg"
+alt="Vortex (2) — Vince"
+loading="lazy"
+
+>
+
+</div>
+
+<div class="artwork-info">
+
+<div class="artwork-title">
+Vortex (2)
+</div>
+
+<div class="artwork-details">
+2026 · Acrylique sur toile · 30 × 40 cm
+</div>
+
+</div>
+
+</article>
+
+<!-- =========================
+     ŒUVRE 3
+========================= -->
+
+<article class="artwork">
+
+<div class="artwork-image">
+
+<div class="artwork-number">
+03
+</div>
+
+<img
+src="images/Ames%20perdues%201.jpg"
+alt="Ames perdues — Vince"
+loading="lazy"
+
+>
+
+</div>
+
+<div class="artwork-info">
+
+<div class="artwork-title">
+Ames perdues
+</div>
+
+<div class="artwork-details">
+2026 · Acrylique sur toile · 30 × 40 cm
+</div>
+
+</div>
+
+</article>
+
+<!-- =========================
+     ŒUVRE 4
+========================= -->
+
+<article class="artwork">
+
+<div class="artwork-image">
+
+<div class="artwork-number">
+04
+</div>
+
+<img
+src="images/Ames%20perdues%202.jpg"
+alt="Ames perdues (2) — Vince"
+loading="lazy"
+
+>
+
+</div>
+
+<div class="artwork-info">
+
+<div class="artwork-title">
+Ames perdues (2)
+</div>
+
+<div class="artwork-details">
+2026 · Acrylique sur toile · 30 × 40 cm
+</div>
+
+</div>
+
+</article>
+
+<!-- =========================
+     ŒUVRE 5
+========================= -->
+
+<article class="artwork">
+
+<div class="artwork-image">
+
+<div class="artwork-number">
+05
+</div>
+
+<img
+src="images/Demon%20blanc.1.jpg"
+alt="Demon blanc — Vince"
+loading="lazy"
+
+>
+
+</div>
+
+<div class="artwork-info">
+
+<div class="artwork-title">
+Demon blanc
+</div>
+
+<div class="artwork-details">
+2026 · Acrylique sur toile · 30 × 40 cm
+</div>
+
+</div>
+
+</article>
+
+<!-- =========================
+     ŒUVRE 6
+========================= -->
+
+<article class="artwork">
+
+<div class="artwork-image">
+
+<div class="artwork-number">
+06
+</div>
+
+<img
+src="images/Demon%20blanc.2.jpg"
+alt="Demon blanc (2) — Vince"
+loading="lazy"
+
+>
+
+</div>
+
+<div class="artwork-info">
+
+<div class="artwork-title">
+Demon blanc (2)
+</div>
+
+<div class="artwork-details">
+2026 · Acrylique sur toile · 30 × 40 cm
+</div>
+
+</div>
+
+</article>
+
+<!-- =========================
+     ŒUVRE 7
+========================= -->
+
+<article class="artwork">
+
+<div class="artwork-image">
+
+<div class="artwork-number">
+07
+</div>
+
+<img
+src="images/Gentil%20demon.1.jpg"
+alt="Gentil demon — Vince"
+loading="lazy"
+
+>
+
+</div>
+
+<div class="artwork-info">
+
+<div class="artwork-title">
+Gentil demon
+</div>
+
+<div class="artwork-details">
+2026 · Acrylique sur toile · 30 × 40 cm
+</div>
+
+</div>
+
+</article>
+
+<!-- =========================
+     ŒUVRE 8
+========================= -->
+
+<article class="artwork">
+
+<div class="artwork-image">
+
+<div class="artwork-number">
+08
+</div>
+
+<img
+src="images/Gentil%20demon.2.jpg"
+alt="Gentil demon (2) — Vince"
+loading="lazy"
+
+>
+
+</div>
+
+<div class="artwork-info">
+
+<div class="artwork-title">
+Gentil demon (2)
+</div>
+
+<div class="artwork-details">
+2026 · Acrylique sur toile · 30 × 40 cm
+</div>
+
+</div>
+
+</article>
+
+<!-- =========================
+     ŒUVRE 9
+========================= -->
+
+<article class="artwork">
+
+<div class="artwork-image">
+
+<div class="artwork-number">
+09
+</div>
+
+<img
+src="images/Kanibal.1.jpg"
+alt="Kanibal — Vince"
+loading="lazy"
+
+>
+
+</div>
+
+<div class="artwork-info">
+
+<div class="artwork-title">
+Kanibal
+</div>
+
+<div class="artwork-details">
+2026 · Acrylique sur toile · 30 × 40 cm
+</div>
+
+</div>
+
+</article>
+
+<!-- =========================
+     ŒUVRE 10
+========================= -->
+
+<article class="artwork">
+
+<div class="artwork-image">
+
+<div class="artwork-number">
+10
+</div>
+
+<img
+src="images/Kanibal.2.jpg"
+alt="Kanibal (2) — Vince"
+loading="lazy"
+
+>
+
+</div>
+
+<div class="artwork-info">
+
+<div class="artwork-title">
+Kanibal (2)
+</div>
+
+<div class="artwork-details">
+2026 · Acrylique sur toile · 30 × 40 cm
+</div>
+
+</div>
+
+</article>
 
 </div>
 
@@ -64,192 +568,16 @@ univers artistique.
 
 <footer class="container">
 
-<span>© Vince — Artiste peintre</span>
+<span>
+© Vince — Artiste peintre
+</span>
 
-<span>Quel monde étrange...</span>
+<span>
+Quel monde étrange...
+</span>
 
 </footer>
-
-
-<script>
-
-/* =====================================================
-   ŒUVRES
-   Les noms correspondent exactement aux fichiers
-   présents dans le dossier "images"
-   ===================================================== */
-
-const works = [
-
-    {
-        file: "vortex1.jpg",
-        title: "Vortex",
-        year: "2026",
-        technique: "Acrylique sur toile",
-        size: "30 × 40 cm"
-    },
-
-    {
-        file: "Vortex.2.jpg",
-        title: "Vortex (2)",
-        year: "2026",
-        technique: "Acrylique sur toile",
-        size: "30 × 40 cm"
-    },
-
-    {
-        file: "Ames perdues 1.jpg",
-        title: "Ames perdues",
-        year: "2026",
-        technique: "Acrylique sur toile",
-        size: "30 × 40 cm"
-    },
-
-    {
-        file: "Ames perdues 2.jpg",
-        title: "Ames perdues (2)",
-        year: "2026",
-        technique: "Acrylique sur toile",
-        size: "30 × 40 cm"
-    },
-
-    {
-        file: "Demon blanc.1.jpg",
-        title: "Demon blanc",
-        year: "2026",
-        technique: "Acrylique sur toile",
-        size: "30 × 40 cm"
-    },
-
-    {
-        file: "Demon blanc.2.jpg",
-        title: "Demon blanc (2)",
-        year: "2026",
-        technique: "Acrylique sur toile",
-        size: "30 × 40 cm"
-    },
-
-    {
-        file: "Gentil demon.1.jpg",
-        title: "Gentil demon",
-        year: "2026",
-        technique: "Acrylique sur toile",
-        size: "30 × 40 cm"
-    },
-
-    {
-        file: "Gentil demon.2.jpg",
-        title: "Gentil demon (2)",
-        year: "2026",
-        technique: "Acrylique sur toile",
-        size: "30 × 40 cm"
-    },
-
-    {
-        file: "Kanibal.1.jpg",
-        title: "Kanibal",
-        year: "2026",
-        technique: "Acrylique sur toile",
-        size: "30 × 40 cm"
-    },
-
-    {
-        file: "Kanibal.2.jpg",
-        title: "Kanibal (2)",
-        year: "2026",
-        technique: "Acrylique sur toile",
-        size: "30 × 40 cm"
-    }
-
-];
-
-
-/* =====================================================
-   AFFICHAGE DE LA GALERIE
-   ===================================================== */
-
-const gallery = document.getElementById("gallery");
-
-works.forEach(work => {
-
-    const article = document.createElement("article");
-
-    article.className = "artwork";
-
-
-    const image = document.createElement("img");
-
-    /*
-       encodeURIComponent permet notamment de gérer
-       correctement les espaces dans les noms de fichiers.
-    */
-
-    image.src = "images/" + encodeURIComponent(work.file);
-
-    image.alt = work.title || "Œuvre de Vince";
-
-    image.loading = "lazy";
-
-
-    image.onerror = function() {
-
-        this.style.display = "none";
-
-        const error = document.createElement("div");
-
-        error.className = "loading";
-
-        error.textContent = "Image introuvable : " + work.file;
-
-        article.insertBefore(error, article.firstChild);
-
-    };
-
-
-    const info = document.createElement("div");
-
-    info.className = "artwork-info";
-
-
-    const title = document.createElement("div");
-
-    title.className = "artwork-title";
-
-    title.textContent = work.title || "Sans titre";
-
-
-    const details = document.createElement("div");
-
-    details.className = "artwork-details";
-
-    details.textContent = [
-
-        work.year,
-        work.technique,
-        work.size
-
-    ]
-
-    .filter(Boolean)
-
-    .join(" · ");
-
-
-    info.appendChild(title);
-
-    info.appendChild(details);
-
-    article.appendChild(image);
-
-    article.appendChild(info);
-
-    gallery.appendChild(article);
-
-});
-
-</script>
 
 </body>
 
 </html>
-```
