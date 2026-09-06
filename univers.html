@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 
 <head>
@@ -9,6 +10,273 @@
 <title>Univers — Vince</title>
 
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+/* =========================
+   PAGE UNIVERS
+========================= */
+
+.univers-page {
+    padding-top: 105px;
+    padding-bottom: 140px;
+}
+
+
+/* =========================
+   EN-TÊTE
+========================= */
+
+.univers-header {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 100px;
+    align-items: end;
+    margin-bottom: 100px;
+}
+
+.univers-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(65px, 9vw, 120px);
+    line-height: 0.9;
+    font-weight: 500;
+    margin: 0;
+}
+
+.univers-header .kicker {
+    margin-bottom: 25px;
+}
+
+.univers-header-intro {
+    color: #777;
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 430px;
+    padding-bottom: 8px;
+}
+
+
+/* =========================
+   LIGNE ROUGE
+========================= */
+
+.univers-line {
+    width: 100%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8f1111 0%,
+            rgba(143,17,17,0.45) 18%,
+            rgba(255,255,255,0.06) 55%,
+            transparent 100%
+        );
+
+    margin-bottom: 90px;
+}
+
+
+/* =========================
+   CONTENU PRINCIPAL
+========================= */
+
+.univers-content {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.45fr)
+        minmax(260px, 0.65fr);
+
+    gap: 110px;
+
+    align-items: start;
+}
+
+
+/* =========================
+   TEXTE
+========================= */
+
+.univers-text {
+    max-width: 760px;
+}
+
+.univers-text h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(35px, 4vw, 52px);
+
+    font-weight: 500;
+
+    line-height: 1.1;
+
+    margin: 0 0 35px;
+}
+
+.univers-text h2 span {
+    color: #a71919;
+}
+
+.univers-text p {
+    color: #aaa;
+
+    font-size: 17px;
+
+    line-height: 1.95;
+
+    margin: 0 0 28px;
+}
+
+.univers-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   INFORMATIONS
+========================= */
+
+.univers-details {
+    border-left: 1px solid rgba(143,17,17,0.6);
+
+    padding-left: 35px;
+}
+
+.detail {
+    padding: 0 0 30px;
+    margin-bottom: 30px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.07);
+}
+
+.detail:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.detail-label {
+    color: #777;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 9px;
+}
+
+.detail-value {
+    color: #eee;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 21px;
+
+    line-height: 1.35;
+}
+
+.detail-value.red-value {
+    color: #a71919;
+}
+
+
+/* =========================
+   PHRASE FINALE
+========================= */
+
+.univers-quote {
+    margin-top: 125px;
+
+    max-width: 900px;
+
+    padding-top: 45px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.07);
+}
+
+.univers-quote p {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(28px, 4vw, 48px);
+
+    line-height: 1.2;
+
+    color: #ddd;
+
+    margin: 0;
+}
+
+.univers-quote span {
+    color: #a71919;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 850px) {
+
+    .univers-header {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        margin-bottom: 70px;
+    }
+
+    .univers-header-intro {
+        max-width: 650px;
+    }
+
+    .univers-content {
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+    }
+
+    .univers-details {
+        max-width: 600px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .univers-page {
+        padding-top: 65px;
+        padding-bottom: 90px;
+    }
+
+    .univers-header h1 {
+        font-size: 62px;
+    }
+
+    .univers-line {
+        margin-bottom: 65px;
+    }
+
+    .univers-text p {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .univers-details {
+        padding-left: 25px;
+    }
+
+    .univers-quote {
+        margin-top: 85px;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -23,20 +291,40 @@ VINCE<span>.</span>
 </a>
 
 <nav>
-<a class="active" href="univers.html">Univers</a>
-<a href="oeuvres.html">Œuvres</a>
-<a href="expositions.html">Expositions</a>
-<a href="contact.html">Contact</a>
+
+<a class="active" href="univers.html">
+Univers
+</a>
+
+<a href="oeuvres.html">
+Œuvres
+</a>
+
+<a href="expositions.html">
+Expositions
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
 </nav>
 
 </div>
 
 </header>
 
-
 <main>
 
-<section class="container page">
+<section class="container univers-page">
+
+<!-- =========================
+     EN-TÊTE
+========================= -->
+
+<div class="univers-header">
+
+<div>
 
 <div class="kicker">
 Démarche artistique
@@ -47,81 +335,118 @@ Mon<br>
 <span class="red">univers.</span>
 </h1>
 
+</div>
 
-<div class="two-columns">
+<div class="univers-header-intro">
 
-<div class="text">
-
-<p>
-Je développe un univers artistique personnel autour
-de personnages étranges, de transformations et de
-situations qui semblent appartenir à un monde
+Je développe un univers artistique personnel
+autour de personnages étranges, de transformations
+et de situations qui semblent appartenir à un monde
 légèrement différent du nôtre.
-</p>
+
+</div>
+
+</div>
+
+<div class="univers-line"></div>
+
+<!-- =========================
+     CONTENU
+========================= -->
+
+<div class="univers-content">
+
+<!-- TEXTE -->
+
+<div class="univers-text">
+
+<h2>
+Regarder le monde<br>
+<span>autrement.</span>
+</h2>
 
 <p>
 Mes œuvres cherchent à provoquer une sensation avant
 de chercher à raconter une histoire précise.
-L'étrange devient alors une manière de regarder
-autrement ce qui nous entoure.
+L'étrange devient alors une manière de regarder autrement
+ce qui nous entoure.
 </p>
 
 <p>
 Je travaille principalement à l'acrylique sur toile,
-à la main, avec une attention particulière portée
-aux formes, aux contrastes et à l'identité de chaque
-personnage.
+à la main, avec une attention particulière portée aux formes,
+aux contrastes et à l'identité de chaque personnage.
 </p>
 
 </div>
 
+<!-- INFORMATIONS -->
 
-<div class="facts">
+<div class="univers-details">
 
-<div class="fact">
+<div class="detail">
 
-<span class="fact-title">
+<div class="detail-label">
 Pratique
-</span>
+</div>
 
-Peinture & dessin
+<div class="detail-value">
+Peinture &amp; dessin
+</div>
 
 </div>
 
+<div class="detail">
 
-<div class="fact">
-
-<span class="fact-title">
+<div class="detail-label">
 Technique
-</span>
+</div>
 
+<div class="detail-value">
 Acrylique sur toile
+</div>
 
 </div>
 
+<div class="detail">
 
-<div class="fact">
-
-<span class="fact-title">
+<div class="detail-label">
 Univers
-</span>
+</div>
 
+<div class="detail-value">
 Surréaliste / étrange / contemporain
+</div>
 
 </div>
 
+<div class="detail">
 
-<div class="fact">
-
-<span class="fact-title">
+<div class="detail-label">
 Collection
-</span>
+</div>
 
+<div class="detail-value red-value">
 « Quel monde étrange... »
+</div>
+
+</div>
 
 </div>
 
 </div>
+
+<!-- =========================
+     PHRASE FINALE
+========================= -->
+
+<div class="univers-quote">
+
+<p>
+« L'étrange n'est pas ailleurs.
+<br>
+<span>Il est juste à côté.</span> »
+</p>
 
 </div>
 
@@ -129,14 +454,18 @@ Collection
 
 </main>
 
-
 <footer class="container">
 
-<span>© Vince — Artiste peintre</span>
+<span>
+© Vince — Artiste peintre
+</span>
 
-<span>Quel monde étrange...</span>
+<span>
+Quel monde étrange...
+</span>
 
 </footer>
 
 </body>
+
 </html>
