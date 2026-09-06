@@ -10,6 +10,179 @@
 
 <link rel="stylesheet" href="style.css">
 
+<style>
+
+/* =========================
+   PAGE CONTACT
+========================= */
+
+.contact-page{
+    padding-top:105px;
+    padding-bottom:130px;
+}
+
+.contact-header{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:100px;
+    align-items:end;
+    margin-bottom:90px;
+}
+
+.contact-header h1{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(65px,9vw,120px);
+    line-height:.9;
+    font-weight:500;
+    margin:0;
+}
+
+.contact-intro{
+    color:#777;
+    font-size:15px;
+    line-height:1.8;
+    max-width:420px;
+}
+
+.contact-line{
+    width:100%;
+    height:1px;
+    background:linear-gradient(90deg,#8f1111 0%,rgba(143,17,17,.45) 18%,rgba(255,255,255,.06) 55%,transparent 100%);
+    margin-bottom:80px;
+}
+
+/* =========================
+   CONTENU
+========================= */
+
+.contact-content{
+    display:grid;
+    grid-template-columns:1.4fr .7fr;
+    gap:100px;
+    align-items:start;
+}
+
+.contact-text h2{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(34px,4vw,52px);
+    font-weight:500;
+    line-height:1.15;
+    margin:0 0 30px;
+}
+
+.contact-text h2 span{
+    color:#a71919;
+}
+
+.contact-text p{
+    color:#aaa;
+    font-size:17px;
+    line-height:1.9;
+    margin:0 0 22px;
+}
+
+/* =========================
+   INFOS
+========================= */
+
+.contact-details{
+    border-left:1px solid rgba(143,17,17,.6);
+    padding-left:35px;
+}
+
+.contact-item{
+    margin-bottom:38px;
+    padding-bottom:28px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.contact-item:last-child{
+    border-bottom:none;
+    margin-bottom:0;
+}
+
+.contact-label{
+    color:#777;
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.contact-value{
+    color:#eee;
+    font-family:'Playfair Display',serif;
+    font-size:22px;
+    line-height:1.4;
+    text-decoration:none;
+    display:block;
+}
+
+.contact-value:hover{
+    color:#a71919;
+}
+
+.instagram{
+    color:#a71919;
+}
+
+/* =========================
+   BAS DE PAGE
+========================= */
+
+.contact-footer{
+    margin-top:120px;
+    padding-top:45px;
+    border-top:1px solid rgba(255,255,255,.07);
+    max-width:900px;
+}
+
+.contact-footer p{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(28px,4vw,46px);
+    line-height:1.25;
+    color:#ddd;
+    margin:0;
+}
+
+.contact-footer span{
+    color:#a71919;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+    .contact-header{
+        grid-template-columns:1fr;
+        gap:35px;
+        margin-bottom:70px;
+    }
+
+    .contact-content{
+        grid-template-columns:1fr;
+        gap:60px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .contact-page{
+        padding-top:70px;
+        padding-bottom:90px;
+    }
+
+    .contact-details{
+        padding-left:25px;
+    }
+
+}
+
+</style>
+
 </head>
 
 <body>
@@ -23,81 +196,119 @@ VINCE<span>.</span>
 </a>
 
 <nav>
-
+<a href="index.html">Accueil</a>
 <a href="univers.html">Univers</a>
-
 <a href="oeuvres.html">Œuvres</a>
-
-<a href="expositions.html">
-Expositions
-</a>
-
-<a class="active" href="contact.html">
-Contact
-</a>
-
+<a href="expositions.html">Expositions</a>
+<a class="active" href="contact.html">Contact</a>
 </nav>
 
 </div>
 
 </header>
 
-
 <main>
 
-<section class="container page">
+<section class="container contact-page">
 
-<div class="contact">
+<div class="contact-header">
 
 <div>
 
 <div class="kicker">
-Contact
+Entrer en contact
 </div>
 
 <h1>
-Parlons<br>
-de votre<br>
-<span class="red">projet.</span>
+Me<br>
+<span class="red">contacter.</span>
 </h1>
 
 </div>
 
+<div class="contact-intro">
 
-<div class="contact-links">
+Pour toute exposition, collaboration, commande ou simplement pour échanger autour de mon travail artistique.
+
+</div>
+
+</div>
+
+<div class="contact-line"></div>
+
+<div class="contact-content">
+
+<div class="contact-text">
+
+<h2>
+Chaque échange peut devenir<br>
+<span>une nouvelle rencontre.</span>
+</h2>
 
 <p>
-Pour une exposition, une collaboration,
-une commande ou une demande professionnelle :
+Je suis ouvert aux propositions d'expositions, aux collaborations artistiques et aux échanges avec les galeries, lieux culturels ou collectionneurs.
 </p>
 
-
 <p>
-
-<a href="mailto:vince.artist@outlook.fr">
-vince.artist@outlook.fr
-</a>
-
-<br>
-
-<a
-href="https://instagram.com/vince.artst"
-target="_blank"
-rel="noopener"
->
-Instagram — @vince.artst
-</a>
-
+Si mon univers résonne avec le vôtre, n'hésitez pas à me contacter. Je réponds personnellement à chaque message.
 </p>
 
 </div>
+
+<div class="contact-details">
+
+<div class="contact-item">
+
+<div class="contact-label">
+Email
+</div>
+
+<a class="contact-value" href="mailto:vince.artist@outlook.fr">
+vince.artist@outlook.fr
+</a>
+
+</div>
+
+<div class="contact-item">
+
+<div class="contact-label">
+Instagram
+</div>
+
+<a class="contact-value instagram" href="https://instagram.com/vince.artst" target="_blank">
+@vince.artst
+</a>
+
+</div>
+
+<div class="contact-item">
+
+<div class="contact-label">
+Localisation
+</div>
+
+<div class="contact-value">
+France
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="contact-footer">
+
+<p>
+« L'art commence souvent par une conversation,
+<span>le reste appartient à l'imaginaire.</span> »
+</p>
 
 </div>
 
 </section>
 
 </main>
-
 
 <footer class="container">
 
@@ -108,5 +319,4 @@ Instagram — @vince.artst
 </footer>
 
 </body>
-
 </html>
