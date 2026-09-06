@@ -8,7 +8,7 @@
     },
     {
         "file": "Vortex.2.jpg",
-        "title": "Vortex",
+        "title": "Vortex (2)",
         "year": "2026",
         "technique": "Acrylique sur toile",
         "size": "30 × 40 cm"
@@ -22,9 +22,51 @@
     },
     {
         "file": "Ames perdues 2.jpg",
-        "title": "Ames perdues",
+        "title": "Ames perdues (2)",
         "year": "2026",
         "technique": "Acrylique sur toile",
         "size": "30 × 40 cm"
-    }
+     },
+    {
+        "file": "Demon blanc.1.jpg",
+        "title": "Demon blanc",
+        "year": "2026",
+        "technique": "Acrylique sur toile",
+        "size": "30 × 40 cm"
+ },
+    {
+        "file": "Demon blanc.2.jpg",
+        "title": "Demon blanc (2)",
+        "year": "2026",
+        "technique": "Acrylique sur toile",
+        "size": "30 × 40 cm"
+         },
+    {
+        "file": "Gentil demon.1.jpg",
+        "title": "Gentil demon",
+        "year": "2026",
+        "technique": "Acrylique sur toile",
+        "size": "30 × 40 cm"
+         },
+    {
+        "file": "Gentil demon.2.jpg",
+        "title": "Gentil demon (2)",
+        "year": "2026",
+        "technique": "Acrylique sur toile",
+        "size": "30 × 40 cm"
+         },
+    {
+        "file": "Kanibal.1.jpg",
+        "title": "Kanibal",
+        "year": "2026",
+        "technique": "Acrylique sur toile",
+        "size": "30 × 40 cm"
+         },
+    {
+        "file": "Kanibal.2.jpg",
+        "title": "Kanibal (2)",
+        "year": "2026",
+        "technique": "Acrylique sur toile",
+        "size": "30 × 40 cm"
+        }
 ]
