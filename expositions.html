@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Œuvres — Vince</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<a href="index.html" class="logo">
+VINCE<span>.</span>
+</a>
+
+<nav>
+<a href="univers.html">Univers</a>
+<a class="active" href="oeuvres.html">Œuvres</a>
+<a href="expositions.html">Expositions</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+</div>
+
+</header>
+
+
+<main>
+
+<section class="container page">
+
+<div class="kicker">
+Sélection
+</div>
+
+<h1>
+Les <span class="red">œuvres.</span>
+</h1>
+
+<p class="intro">
+Une sélection de peintures et créations issues de mon
+univers artistique.
+</p>
+
+<br><br>
+
+<div id="gallery" class="gallery">
+
+<div class="loading">
+Chargement des œuvres...
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer class="container">
+
+<span>© Vince — Artiste peintre</span>
+
+<span>Quel monde étrange...</span>
+
+</footer>
+
+
+<script>
+
+async function loadGallery() {
+
+const gallery = document.getElementById("gallery");
+
+try {
+
+const response = await fetch(
+"gallery.json?" + Date.now()
+);
+
+if (!response.ok) {
+throw new Error();
+}
+
+const works = await response.json();
+
+gallery.innerHTML = "";
+
+if (!works.length) {
+
+gallery.innerHTML = `
+<div class="loading">
+Les œuvres seront bientôt disponibles.
+</div>
+`;
+
+return;
+
+}
+
+
+works.forEach(work => {
+
+const article = document.createElement("article");
+
+article.className = "artwork";
+
+
+const image = document.createElement("img");
+
+image.src =
+"images/" +
+encodeURIComponent(work.file);
+
+image.alt =
+work.title || "Œuvre de Vince";
+
+image.loading = "lazy";
+
+
+const info =
+document.createElement("div");
+
+info.className =
+"artwork-info";
+
+
+const title =
+document.createElement("div");
+
+title.className =
+"artwork-title";
+
+title.textContent =
+work.title || "Sans titre";
+
+
+const details =
+document.createElement("div");
+
+details.className =
+"artwork-details";
+
+
+details.textContent =
+[
+work.year,
+work.technique,
+work.size
+]
+.filter(Boolean)
+.join(" · ");
+
+
+info.appendChild(title);
+
+info.appendChild(details);
+
+article.appendChild(image);
+
+article.appendChild(info);
+
+gallery.appendChild(article);
+
+});
+
+}
+
+catch(error) {
+
+gallery.innerHTML = `
+<div class="loading">
+
+Impossible de charger la galerie.<br><br>
+
+Vérifie que <strong>gallery.json</strong>
+est bien à la racine du dépôt.
+
+</div>
+`;
+
+}
+
+}
+
+loadGallery();
+
+</script>
+
+</body>
+
+</html>
