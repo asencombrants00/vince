@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -55,10 +56,6 @@ univers artistique.
 
 <div id="gallery" class="gallery">
 
-<div class="loading">
-Chargement des œuvres...
-</div>
-
 </div>
 
 </section>
@@ -73,130 +70,186 @@ Chargement des œuvres...
 
 </footer>
 
+
 <script>
 
-async function loadGallery() {
+/* =====================================================
+   ŒUVRES
+   Les noms correspondent exactement aux fichiers
+   présents dans le dossier "images"
+   ===================================================== */
+
+const works = [
+
+    {
+        file: "vortex1.jpg",
+        title: "Vortex",
+        year: "2026",
+        technique: "Acrylique sur toile",
+        size: "30 × 40 cm"
+    },
+
+    {
+        file: "Vortex.2.jpg",
+        title: "Vortex (2)",
+        year: "2026",
+        technique: "Acrylique sur toile",
+        size: "30 × 40 cm"
+    },
+
+    {
+        file: "Ames perdues 1.jpg",
+        title: "Ames perdues",
+        year: "2026",
+        technique: "Acrylique sur toile",
+        size: "30 × 40 cm"
+    },
+
+    {
+        file: "Ames perdues 2.jpg",
+        title: "Ames perdues (2)",
+        year: "2026",
+        technique: "Acrylique sur toile",
+        size: "30 × 40 cm"
+    },
+
+    {
+        file: "Demon blanc.1.jpg",
+        title: "Demon blanc",
+        year: "2026",
+        technique: "Acrylique sur toile",
+        size: "30 × 40 cm"
+    },
+
+    {
+        file: "Demon blanc.2.jpg",
+        title: "Demon blanc (2)",
+        year: "2026",
+        technique: "Acrylique sur toile",
+        size: "30 × 40 cm"
+    },
+
+    {
+        file: "Gentil demon.1.jpg",
+        title: "Gentil demon",
+        year: "2026",
+        technique: "Acrylique sur toile",
+        size: "30 × 40 cm"
+    },
+
+    {
+        file: "Gentil demon.2.jpg",
+        title: "Gentil demon (2)",
+        year: "2026",
+        technique: "Acrylique sur toile",
+        size: "30 × 40 cm"
+    },
+
+    {
+        file: "Kanibal.1.jpg",
+        title: "Kanibal",
+        year: "2026",
+        technique: "Acrylique sur toile",
+        size: "30 × 40 cm"
+    },
+
+    {
+        file: "Kanibal.2.jpg",
+        title: "Kanibal (2)",
+        year: "2026",
+        technique: "Acrylique sur toile",
+        size: "30 × 40 cm"
+    }
+
+];
+
+
+/* =====================================================
+   AFFICHAGE DE LA GALERIE
+   ===================================================== */
 
 const gallery = document.getElementById("gallery");
 
-try {
-
-const response = await fetch("gallery.json?" + Date.now());
-
-if (!response.ok) {
-throw new Error("Impossible de charger gallery.json");
-}
-
-const works = await response.json();
-
-gallery.innerHTML = "";
-
-if (!Array.isArray(works) || works.length === 0) {
-
-gallery.innerHTML = `
-<div class="loading">
-Les œuvres seront bientôt disponibles.
-</div>
-`;
-
-return;
-
-}
-
-
 works.forEach(work => {
 
-const article = document.createElement("article");
+    const article = document.createElement("article");
 
-article.className = "artwork";
-
-
-const image = document.createElement("img");
-
-image.src = "images/" + work.file;
-
-image.alt = work.title || "Œuvre de Vince";
-
-image.loading = "lazy";
+    article.className = "artwork";
 
 
-image.onerror = function() {
+    const image = document.createElement("img");
 
-this.style.display = "none";
+    /*
+       encodeURIComponent permet notamment de gérer
+       correctement les espaces dans les noms de fichiers.
+    */
 
-const error = document.createElement("div");
+    image.src = "images/" + encodeURIComponent(work.file);
 
-error.className = "loading";
+    image.alt = work.title || "Œuvre de Vince";
 
-error.textContent = "Image introuvable : " + work.file;
-
-article.insertBefore(error, article.firstChild);
-
-};
-
-
-const info = document.createElement("div");
-
-info.className = "artwork-info";
+    image.loading = "lazy";
 
 
-const title = document.createElement("div");
+    image.onerror = function() {
 
-title.className = "artwork-title";
+        this.style.display = "none";
 
-title.textContent = work.title || "Sans titre";
+        const error = document.createElement("div");
 
+        error.className = "loading";
 
-const details = document.createElement("div");
+        error.textContent = "Image introuvable : " + work.file;
 
-details.className = "artwork-details";
+        article.insertBefore(error, article.firstChild);
 
-details.textContent = [
-work.year,
-work.technique,
-work.size
-]
-.filter(Boolean)
-.join(" · ");
+    };
 
 
-info.appendChild(title);
+    const info = document.createElement("div");
 
-info.appendChild(details);
+    info.className = "artwork-info";
 
-article.appendChild(image);
 
-article.appendChild(info);
+    const title = document.createElement("div");
 
-gallery.appendChild(article);
+    title.className = "artwork-title";
+
+    title.textContent = work.title || "Sans titre";
+
+
+    const details = document.createElement("div");
+
+    details.className = "artwork-details";
+
+    details.textContent = [
+
+        work.year,
+        work.technique,
+        work.size
+
+    ]
+
+    .filter(Boolean)
+
+    .join(" · ");
+
+
+    info.appendChild(title);
+
+    info.appendChild(details);
+
+    article.appendChild(image);
+
+    article.appendChild(info);
+
+    gallery.appendChild(article);
 
 });
-
-}
-
-catch(error) {
-
-console.error(error);
-
-gallery.innerHTML = `
-<div class="loading">
-
-Impossible de charger la galerie.<br><br>
-
-Vérifie que <strong>gallery.json</strong>
-est bien à la racine du dépôt.
-
-</div>
-`;
-
-}
-
-}
-
-loadGallery();
 
 </script>
 
 </body>
 
 </html>
+```
