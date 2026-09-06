@@ -13,10 +13,6 @@
 
 <style>
 
-/* =========================
-   GALERIE DES ŒUVRES
-========================= */
-
 .oeuvres-intro {
     max-width: 760px;
     margin: 0 auto;
@@ -31,46 +27,30 @@
 
 .gallery {
     margin-top: 65px;
-
     display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 45px 28px;
 }
 
 .artwork {
-    break-inside: avoid;
-
     position: relative;
-
     margin: 0;
-
     min-width: 0;
 }
 
 .artwork-image {
     width: 100%;
-
     display: block;
-
     background: #050505;
-
     border: 1px solid rgba(255,255,255,0.06);
-
     overflow: hidden;
 }
 
 .artwork-image img {
     width: 100%;
     height: auto;
-
     display: block;
-
-    transition:
-        transform 0.45s ease,
-        filter 0.45s ease;
+    transition: transform 0.45s ease, filter 0.45s ease;
 }
 
 .artwork:hover .artwork-image img {
@@ -84,56 +64,34 @@
 
 .artwork-title {
     font-family: 'Playfair Display', serif;
-
     font-size: 23px;
-
     color: #eee;
-
     line-height: 1.2;
 }
 
 .artwork-details {
     color: #777;
-
     font-size: 13px;
-
     margin-top: 7px;
-
     line-height: 1.5;
 }
 
-/* =========================
-   NUMÉRO DISCRET
-========================= */
-
 .artwork-number {
     position: absolute;
-
     top: 12px;
     left: 12px;
-
     z-index: 2;
-
     padding: 5px 8px;
-
     background: rgba(8,8,8,0.78);
-
     color: #aaa;
-
     font-size: 10px;
-
     letter-spacing: 1px;
 }
-
-/* =========================
-   MOBILE
-========================= */
 
 @media (max-width: 900px) {
 
     .gallery {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-
         gap: 38px 22px;
     }
 
@@ -143,7 +101,6 @@
 
     .gallery {
         grid-template-columns: 1fr;
-
         gap: 40px;
     }
 
@@ -210,17 +167,13 @@ univers artistique.
 
 <div class="gallery">
 
-<!-- =========================
-     ŒUVRE 1
-========================= -->
+<!-- 01 -->
 
 <article class="artwork">
 
 <div class="artwork-image">
 
-<div class="artwork-number">
-01
-</div>
+<div class="artwork-number">01</div>
 
 <img
 src="images/vortex1.jpg"
@@ -245,17 +198,13 @@ Vortex
 
 </article>
 
-<!-- =========================
-     ŒUVRE 2
-========================= -->
+<!-- 02 -->
 
 <article class="artwork">
 
 <div class="artwork-image">
 
-<div class="artwork-number">
-02
-</div>
+<div class="artwork-number">02</div>
 
 <img
 src="images/Vortex.2.jpg"
@@ -280,17 +229,13 @@ Vortex (2)
 
 </article>
 
-<!-- =========================
-     ŒUVRE 3
-========================= -->
+<!-- 03 -->
 
 <article class="artwork">
 
 <div class="artwork-image">
 
-<div class="artwork-number">
-03
-</div>
+<div class="artwork-number">03</div>
 
 <img
 src="images/Ames%20perdues%201.jpg"
@@ -315,17 +260,13 @@ Ames perdues
 
 </article>
 
-<!-- =========================
-     ŒUVRE 4
-========================= -->
+<!-- 04 -->
 
 <article class="artwork">
 
 <div class="artwork-image">
 
-<div class="artwork-number">
-04
-</div>
+<div class="artwork-number">04</div>
 
 <img
 src="images/Ames%20perdues%202.jpg"
@@ -350,21 +291,17 @@ Ames perdues (2)
 
 </article>
 
-<!-- =========================
-     ŒUVRE 5
-========================= -->
+<!-- 05 -->
 
 <article class="artwork">
 
 <div class="artwork-image">
 
-<div class="artwork-number">
-05
-</div>
+<div class="artwork-number">05</div>
 
 <img
-src="images/Demon%20blanc.1.jpg"
-alt="Demon blanc — Vince"
+src="images/D%C3%A9mon%20blanc.1.jpg"
+alt="Démon blanc — Vince"
 loading="lazy"
 
 >
@@ -374,7 +311,7 @@ loading="lazy"
 <div class="artwork-info">
 
 <div class="artwork-title">
-Demon blanc
+Démon blanc
 </div>
 
 <div class="artwork-details">
@@ -385,21 +322,17 @@ Demon blanc
 
 </article>
 
-<!-- =========================
-     ŒUVRE 6
-========================= -->
+<!-- 06 -->
 
 <article class="artwork">
 
 <div class="artwork-image">
 
-<div class="artwork-number">
-06
-</div>
+<div class="artwork-number">06</div>
 
 <img
-src="images/Demon%20blanc.2.jpg"
-alt="Demon blanc (2) — Vince"
+src="images/D%C3%A9mon%20blanc.2.jpg"
+alt="Démon blanc (2) — Vince"
 loading="lazy"
 
 >
@@ -409,7 +342,7 @@ loading="lazy"
 <div class="artwork-info">
 
 <div class="artwork-title">
-Demon blanc (2)
+Démon blanc (2)
 </div>
 
 <div class="artwork-details">
@@ -420,21 +353,17 @@ Demon blanc (2)
 
 </article>
 
-<!-- =========================
-     ŒUVRE 7
-========================= -->
+<!-- 07 -->
 
 <article class="artwork">
 
 <div class="artwork-image">
 
-<div class="artwork-number">
-07
-</div>
+<div class="artwork-number">07</div>
 
 <img
-src="images/Gentil%20demon.1.jpg"
-alt="Gentil demon — Vince"
+src="images/Gentil%20d%C3%A9mon.1.jpg"
+alt="Gentil démon — Vince"
 loading="lazy"
 
 >
@@ -444,7 +373,7 @@ loading="lazy"
 <div class="artwork-info">
 
 <div class="artwork-title">
-Gentil demon
+Gentil démon
 </div>
 
 <div class="artwork-details">
@@ -455,21 +384,17 @@ Gentil demon
 
 </article>
 
-<!-- =========================
-     ŒUVRE 8
-========================= -->
+<!-- 08 -->
 
 <article class="artwork">
 
 <div class="artwork-image">
 
-<div class="artwork-number">
-08
-</div>
+<div class="artwork-number">08</div>
 
 <img
-src="images/Gentil%20demon.2.jpg"
-alt="Gentil demon (2) — Vince"
+src="images/Gentil%20d%C3%A9mon.2.jpg"
+alt="Gentil démon (2) — Vince"
 loading="lazy"
 
 >
@@ -479,7 +404,7 @@ loading="lazy"
 <div class="artwork-info">
 
 <div class="artwork-title">
-Gentil demon (2)
+Gentil démon (2)
 </div>
 
 <div class="artwork-details">
@@ -490,20 +415,16 @@ Gentil demon (2)
 
 </article>
 
-<!-- =========================
-     ŒUVRE 9
-========================= -->
+<!-- 09 -->
 
 <article class="artwork">
 
 <div class="artwork-image">
 
-<div class="artwork-number">
-09
-</div>
+<div class="artwork-number">09</div>
 
 <img
-src="images/Kanibal.1.jpg"
+src="images/Kanibal%201.jpg"
 alt="Kanibal — Vince"
 loading="lazy"
 
@@ -525,20 +446,16 @@ Kanibal
 
 </article>
 
-<!-- =========================
-     ŒUVRE 10
-========================= -->
+<!-- 10 -->
 
 <article class="artwork">
 
 <div class="artwork-image">
 
-<div class="artwork-number">
-10
-</div>
+<div class="artwork-number">10</div>
 
 <img
-src="images/Kanibal.2.jpg"
+src="images/Kanibal%202.jpg"
 alt="Kanibal (2) — Vince"
 loading="lazy"
 
