@@ -1,1 +1,749 @@
-<!DOCTYPE html> <html lang="fr"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Expositions — Vince</title> <link rel="stylesheet" href="style.css"> <style> /* ========================================================= PAGE EXPOSITIONS ========================================================= */ .exposition-page { padding-top: 90px; padding-bottom: 120px; } .exposition-header { max-width: 850px; margin-bottom: 70px; } .exposition-header .kicker { margin-bottom: 20px; } .exposition-header h1 { margin-bottom: 30px; } .exposition-header p { color: #aaa; font-size: 17px; line-height: 1.8; max-width: 700px; } /* ========================================================= INFORMATIONS EXPOSITION ========================================================= */ .expo-main { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: start; margin-bottom: 100px; } .expo-main-text { padding-top: 10px; } .expo-main-text h2 { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 500; margin: 0 0 25px; } .expo-main-text p { color: #aaa; line-height: 1.8; font-size: 16px; margin: 0 0 18px; } .expo-place { margin-top: 30px; padding-left: 20px; border-left: 2px solid #8f1111; } .expo-place strong { display: block; color: #eee; margin-bottom: 7px; } .expo-place span { color: #777; line-height: 1.7; } /* ========================================================= GALERIE ========================================================= */ .exposition-gallery { columns: 2 300px; column-gap: 25px; margin-top: 30px; } .exposition-media { break-inside: avoid; margin-bottom: 25px; position: relative; overflow: hidden; background: #0d0d0d; border: 1px solid rgba(255,255,255,0.06); } .exposition-media img, .exposition-media video { width: 100%; height: auto; display: block; } .exposition-media img { transition: transform 0.45s ease, filter 0.45s ease; } .exposition-media:hover img { transform: scale(1.015); filter: brightness(1.06); } .exposition-media video { background: #000; } /* ========================================================= BLOC CENTRAL "EN IMAGES" ========================================================= */ .media-intro { break-inside: avoid; min-height: 320px; margin-bottom: 25px; padding: 45px 35px; display: flex; flex-direction: column; justify-content: center; background: radial-gradient( ellipse at center, rgba(100, 5, 5, 0.25), rgba(8, 8, 8, 0.95) 70% ); border-top: 1px solid rgba(130, 10, 10, 0.35); border-bottom: 1px solid rgba(130, 10, 10, 0.35); text-align: center; } .media-intro .small-title { color: #a71919; font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 15px; } .media-intro h2 { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 500; margin: 0 0 18px; } .media-intro p { color: #888; font-size: 14px; line-height: 1.7; margin: 0 auto; max-width: 330px; } /* ========================================================= CHARGEMENT / ERREUR ========================================================= */ .media-loading { color: #777; padding: 40px 0; text-align: center; font-size: 14px; } .media-error { color: #777; padding: 30px; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.015); line-height: 1.7; } /* ========================================================= RESPONSIVE ========================================================= */ @media (max-width: 800px) { .expo-main { grid-template-columns: 1fr; gap: 40px; } .exposition-gallery { columns: 1; } .media-intro { min-height: 260px; } } </style> </head> <body> <header> <div class="container navbar"> <a href="index.html" class="logo"> VINCE<span>.</span> </a> <nav> <a href="univers.html">Univers</a> <a href="oeuvres.html">Œuvres</a> <a class="active" href="expositions.html">Expositions</a> <a href="contact.html">Contact</a> </nav> </div> </header> <main> <section class="container page exposition-page"> <!-- ===================================================== INTRODUCTION ===================================================== --> <div class="exposition-header"> <div class="kicker"> Exposition </div> <h1> Quel monde <span class="red">étrange...</span> </h1> <p> Une collection née d'un univers étrange, sombre et organique, présentée pour la première fois au public. </p> </div> <!-- ===================================================== INFORMATIONS ===================================================== --> <div class="expo-main"> <div class="expo-main-text"> <h2> L'Art des Choix </h2> <p> J'ai présenté ma collection <strong>« Quel monde étrange... »</strong> à la galerie L'Art des Choix. </p> <p> Une exposition autour de créatures, de formes étranges et d'un univers volontairement sombre et singulier. </p> <div class="expo-place"> <strong>L'Art des Choix</strong> <span> 8 Quai de Merle<br> 07100 Annonay<br> Ardèche, France </span> </div> </div> </div> <!-- ===================================================== MÉDIAS ===================================================== --> <div id="exposition-gallery" class="exposition-gallery"> <div class="media-loading"> Chargement des images de l'exposition... </div> </div> </section> </main> <footer class="container"> <span> © Vince — Artiste peintre </span> <span> Quel monde étrange... </span> </footer> <script> /* ========================================================= CONFIGURATION ========================================================= */ /* Le dossier utilisé est exactement : images/Expositions/ Le script essaie automatiquement de récupérer les fichiers du dépôt GitHub afin de ne pas avoir à écrire leurs noms un par un. */ const gallery = document.getElementById("exposition-gallery"); /* ========================================================= DÉTECTION DU DÉPÔT GITHUB ========================================================= */ function getGitHubRepository() { const hostname = window.location.hostname; const pathname = window.location.pathname .split("/") .filter(Boolean); /* Cas GitHub Pages classique : utilisateur.github.io/nom-du-repo/ Dans ce cas : hostname = utilisateur.github.io pathname[0] = nom-du-repo */ if (hostname.endsWith(".github.io")) { const username = hostname.split(".")[0]; const repository = pathname.length > 0 ? pathname[0] : `${username}.github.io`; return { owner: username, repo: repository }; } /* Si le site utilise un domaine personnalisé, on tente de récupérer le dépôt via le fichier GitHub Pages standard. */ return null; } /* ========================================================= TYPES ACCEPTÉS ========================================================= */ const imageExtensions = [ "jpg", "jpeg", "png", "webp", "gif" ]; const videoExtensions = [ "mp4", "webm", "mov" ]; /* ========================================================= VÉRIFICATION DE L'EXTENSION ========================================================= */ function getExtension(filename) { return filename .split(".") .pop() .toLowerCase(); } /* ========================================================= CRÉATION D'UNE IMAGE ========================================================= */ function createImage(file) { const article = document.createElement("article"); article.className = "exposition-media"; const image = document.createElement("img"); image.src = "images/Expositions/" + encodeURIComponent(file.name); image.alt = "Photographie de l'exposition Quel monde étrange"; image.loading = "lazy"; article.appendChild(image); return article; } /* ========================================================= CRÉATION D'UNE VIDÉO ========================================================= */ function createVideo(file) { const article = document.createElement("article"); article.className = "exposition-media"; const video = document.createElement("video"); video.controls = true; video.preload = "metadata"; video.playsInline = true; const source = document.createElement("source"); source.src = "images/Expositions/" + encodeURIComponent(file.name); source.type = file.extension === "webm" ? "video/webm" : "video/mp4"; video.appendChild(source); article.appendChild(video); return article; } /* ========================================================= BLOC CENTRAL ========================================================= */ function createMediaIntro() { const block = document.createElement("div"); block.className = "media-intro"; block.innerHTML = ` <div class="small-title"> En images </div> <h2> L'exposition en vidéo </h2> <p> Quelques images prises pendant l'exposition, pour découvrir les œuvres dans leur environnement. </p> `; return block; } /* ========================================================= AFFICHAGE ========================================================= */ function displayMedia(files) { gallery.innerHTML = ""; if (!files.length) { gallery.innerHTML = ` <div class="media-error"> Aucun média trouvé dans <strong>images/Expositions</strong>. </div> `; return; } /* On insère les médias. Le bloc "EN IMAGES" est placé au milieu de la galerie. */ const middle = Math.ceil(files.length / 2); files.forEach((file, index) => { if (index === middle) { gallery.appendChild( createMediaIntro() ); } if (imageExtensions.includes(file.extension)) { gallery.appendChild( createImage(file) ); } else if (videoExtensions.includes(file.extension)) { gallery.appendChild( createVideo(file) ); } }); } /* ========================================================= RÉCUPÉRATION DES FICHIERS GITHUB ========================================================= */ async function loadGitHubMedia() { const repository = getGitHubRepository(); if (!repository) { gallery.innerHTML = ` <div class="media-error"> Les médias sont bien placés dans <strong>images/Expositions</strong>, mais le site utilise actuellement un domaine personnalisé. </div> `; return; } const apiURL = `https://api.github.com/repos/` + `${repository.owner}/` + `${repository.repo}/contents/images/Expositions`; try { const response = await fetch(apiURL); if (!response.ok) { throw new Error( "Impossible de récupérer les fichiers." ); } const files = await response.json(); const media = files .filter(file => file.type === "file") .map(file => ({ name: file.name, extension: getExtension(file.name) })) .filter(file => imageExtensions.includes(file.extension) || videoExtensions.includes(file.extension) ); displayMedia(media); } catch (error) { console.error(error); gallery.innerHTML = ` <div class="media-error"> Impossible de charger automatiquement les médias de l'exposition. <br><br> Vérifie simplement que tes fichiers sont bien dans : <strong> images/Expositions/ </strong> </div> `; } } loadGitHubMedia(); </script> </body> </html>
+```html
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Expositions — Vince</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* =========================================================
+   PAGE EXPOSITIONS
+   ========================================================= */
+
+.exposition-page {
+    padding-top: 90px;
+    padding-bottom: 120px;
+}
+
+.exposition-header {
+    max-width: 850px;
+    margin-bottom: 70px;
+}
+
+.exposition-header .kicker {
+    margin-bottom: 20px;
+}
+
+.exposition-header h1 {
+    margin-bottom: 30px;
+}
+
+.exposition-header p {
+    color: #aaa;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 700px;
+}
+
+
+/* =========================================================
+   INFORMATIONS EXPOSITION
+   ========================================================= */
+
+.expo-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: start;
+    margin-bottom: 100px;
+}
+
+.expo-main-text {
+    padding-top: 10px;
+}
+
+.expo-main-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 500;
+    margin: 0 0 25px;
+}
+
+.expo-main-text p {
+    color: #aaa;
+    line-height: 1.8;
+    font-size: 16px;
+    margin: 0 0 18px;
+}
+
+.expo-place {
+    margin-top: 30px;
+    padding-left: 20px;
+    border-left: 2px solid #8f1111;
+}
+
+.expo-place strong {
+    display: block;
+    color: #eee;
+    margin-bottom: 7px;
+}
+
+.expo-place span {
+    color: #777;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   GALERIE
+   ========================================================= */
+
+.exposition-gallery {
+    columns: 2 300px;
+    column-gap: 25px;
+    margin-top: 30px;
+}
+
+.exposition-media {
+    break-inside: avoid;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+    background: #0d0d0d;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.exposition-media img,
+.exposition-media video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.exposition-media img {
+    transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.exposition-media:hover img {
+    transform: scale(1.015);
+    filter: brightness(1.06);
+}
+
+.exposition-media video {
+    background: #000;
+}
+
+
+/* =========================================================
+   BLOC CENTRAL "EN IMAGES"
+   ========================================================= */
+
+.media-intro {
+    break-inside: avoid;
+    min-height: 320px;
+    margin-bottom: 25px;
+    padding: 45px 35px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(100, 5, 5, 0.25),
+            rgba(8, 8, 8, 0.95) 70%
+        );
+
+    border-top: 1px solid rgba(130, 10, 10, 0.35);
+    border-bottom: 1px solid rgba(130, 10, 10, 0.35);
+
+    text-align: center;
+}
+
+.media-intro .small-title {
+    color: #a71919;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.media-intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 500;
+    margin: 0 0 18px;
+}
+
+.media-intro p {
+    color: #888;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0 auto;
+    max-width: 330px;
+}
+
+
+/* =========================================================
+   CHARGEMENT / ERREUR
+   ========================================================= */
+
+.media-loading {
+    color: #777;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.media-error {
+    color: #777;
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.015);
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .expo-main {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .exposition-gallery {
+        columns: 1;
+    }
+
+    .media-intro {
+        min-height: 260px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<a href="index.html" class="logo">
+VINCE<span>.</span>
+</a>
+
+<nav>
+
+<a href="univers.html">Univers</a>
+
+<a href="oeuvres.html">Œuvres</a>
+
+<a class="active" href="expositions.html">Expositions</a>
+
+<a href="contact.html">Contact</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<main>
+
+<section class="container page exposition-page">
+
+
+<!-- =====================================================
+     INTRODUCTION
+     ===================================================== -->
+
+<div class="exposition-header">
+
+<div class="kicker">
+Exposition
+</div>
+
+<h1>
+Quel monde <span class="red">étrange...</span>
+</h1>
+
+<p>
+Une collection née d'un univers étrange, sombre et
+organique, présentée pour la première fois au public.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     INFORMATIONS
+     ===================================================== -->
+
+<div class="expo-main">
+
+<div class="expo-main-text">
+
+<h2>
+L'Art des Choix
+</h2>
+
+<p>
+J'ai présenté ma collection
+<strong>« Quel monde étrange... »</strong>
+à la galerie L'Art des Choix.
+</p>
+
+<p>
+Une exposition autour de créatures, de formes étranges
+et d'un univers volontairement sombre et singulier.
+</p>
+
+<div class="expo-place">
+
+<strong>L'Art des Choix</strong>
+
+<span>
+8 Quai de Merle<br>
+07100 Annonay<br>
+Ardèche, France
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     MÉDIAS
+     ===================================================== -->
+
+<div id="exposition-gallery" class="exposition-gallery">
+
+<div class="media-loading">
+Chargement des images de l'exposition...
+</div>
+
+</div>
+
+
+</section>
+
+</main>
+
+
+<footer class="container">
+
+<span>
+© Vince — Artiste peintre
+</span>
+
+<span>
+Quel monde étrange...
+</span>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   CONFIGURATION
+   ========================================================= */
+
+/*
+   Le dossier utilisé est exactement :
+
+   images/Expositions/
+
+   Le script essaie automatiquement de récupérer les fichiers
+   du dépôt GitHub afin de ne pas avoir à écrire leurs noms
+   un par un.
+*/
+
+
+const gallery = document.getElementById("exposition-gallery");
+
+
+/* =========================================================
+   DÉTECTION DU DÉPÔT GITHUB
+   ========================================================= */
+
+function getGitHubRepository() {
+
+    const hostname = window.location.hostname;
+
+    const pathname = window.location.pathname
+        .split("/")
+        .filter(Boolean);
+
+
+    /*
+       Cas GitHub Pages classique :
+
+       utilisateur.github.io/nom-du-repo/
+
+       Dans ce cas :
+       hostname = utilisateur.github.io
+       pathname[0] = nom-du-repo
+    */
+
+    if (hostname.endsWith(".github.io")) {
+
+        const username = hostname.split(".")[0];
+
+        const repository = pathname.length > 0
+            ? pathname[0]
+            : `${username}.github.io`;
+
+        return {
+            owner: username,
+            repo: repository
+        };
+
+    }
+
+
+    /*
+       Si le site utilise un domaine personnalisé,
+       on tente de récupérer le dépôt via le fichier
+       GitHub Pages standard.
+    */
+
+    return null;
+
+}
+
+
+/* =========================================================
+   TYPES ACCEPTÉS
+   ========================================================= */
+
+const imageExtensions = [
+    "jpg",
+    "jpeg",
+    "png",
+    "webp",
+    "gif"
+];
+
+const videoExtensions = [
+    "mp4",
+    "webm",
+    "mov"
+];
+
+
+/* =========================================================
+   VÉRIFICATION DE L'EXTENSION
+   ========================================================= */
+
+function getExtension(filename) {
+
+    return filename
+        .split(".")
+        .pop()
+        .toLowerCase();
+
+}
+
+
+/* =========================================================
+   CRÉATION D'UNE IMAGE
+   ========================================================= */
+
+function createImage(file) {
+
+    const article = document.createElement("article");
+
+    article.className = "exposition-media";
+
+
+    const image = document.createElement("img");
+
+    image.src = "images/Expositions/" +
+        encodeURIComponent(file.name);
+
+    image.alt = "Photographie de l'exposition Quel monde étrange";
+
+    image.loading = "lazy";
+
+
+    article.appendChild(image);
+
+    return article;
+
+}
+
+
+/* =========================================================
+   CRÉATION D'UNE VIDÉO
+   ========================================================= */
+
+function createVideo(file) {
+
+    const article = document.createElement("article");
+
+    article.className = "exposition-media";
+
+
+    const video = document.createElement("video");
+
+    video.controls = true;
+
+    video.preload = "metadata";
+
+    video.playsInline = true;
+
+
+    const source = document.createElement("source");
+
+    source.src =
+        "images/Expositions/" +
+        encodeURIComponent(file.name);
+
+    source.type =
+        file.extension === "webm"
+            ? "video/webm"
+            : "video/mp4";
+
+
+    video.appendChild(source);
+
+    article.appendChild(video);
+
+    return article;
+
+}
+
+
+/* =========================================================
+   BLOC CENTRAL
+   ========================================================= */
+
+function createMediaIntro() {
+
+    const block = document.createElement("div");
+
+    block.className = "media-intro";
+
+
+    block.innerHTML = `
+
+        <div class="small-title">
+            En images
+        </div>
+
+        <h2>
+            L'exposition en vidéo
+        </h2>
+
+        <p>
+            Quelques images prises pendant l'exposition,
+            pour découvrir les œuvres dans leur environnement.
+        </p>
+
+    `;
+
+    return block;
+
+}
+
+
+/* =========================================================
+   AFFICHAGE
+   ========================================================= */
+
+function displayMedia(files) {
+
+    gallery.innerHTML = "";
+
+
+    if (!files.length) {
+
+        gallery.innerHTML = `
+
+            <div class="media-error">
+
+                Aucun média trouvé dans
+                <strong>images/Expositions</strong>.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /*
+       On insère les médias.
+
+       Le bloc "EN IMAGES" est placé au milieu
+       de la galerie.
+    */
+
+    const middle =
+        Math.ceil(files.length / 2);
+
+
+    files.forEach((file, index) => {
+
+        if (index === middle) {
+
+            gallery.appendChild(
+                createMediaIntro()
+            );
+
+        }
+
+
+        if (imageExtensions.includes(file.extension)) {
+
+            gallery.appendChild(
+                createImage(file)
+            );
+
+        }
+
+
+        else if (videoExtensions.includes(file.extension)) {
+
+            gallery.appendChild(
+                createVideo(file)
+            );
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   RÉCUPÉRATION DES FICHIERS GITHUB
+   ========================================================= */
+
+async function loadGitHubMedia() {
+
+    const repository = getGitHubRepository();
+
+
+    if (!repository) {
+
+        gallery.innerHTML = `
+
+            <div class="media-error">
+
+                Les médias sont bien placés dans
+                <strong>images/Expositions</strong>,
+                mais le site utilise actuellement un domaine
+                personnalisé.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const apiURL =
+        `https://api.github.com/repos/` +
+        `${repository.owner}/` +
+        `${repository.repo}/contents/images/Expositions`;
+
+
+    try {
+
+        const response = await fetch(apiURL);
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Impossible de récupérer les fichiers."
+            );
+
+        }
+
+
+        const files = await response.json();
+
+
+        const media = files
+
+            .filter(file => file.type === "file")
+
+            .map(file => ({
+
+                name: file.name,
+
+                extension: getExtension(file.name)
+
+            }))
+
+            .filter(file =>
+
+                imageExtensions.includes(file.extension) ||
+
+                videoExtensions.includes(file.extension)
+
+            );
+
+
+        displayMedia(media);
+
+    }
+
+
+    catch (error) {
+
+        console.error(error);
+
+
+        gallery.innerHTML = `
+
+            <div class="media-error">
+
+                Impossible de charger automatiquement
+                les médias de l'exposition.
+
+                <br><br>
+
+                Vérifie simplement que tes fichiers sont bien
+                dans :
+
+                <strong>
+                images/Expositions/
+                </strong>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+loadGitHubMedia();
+
+</script>
+
+
+</body>
+
+</html>
+```
